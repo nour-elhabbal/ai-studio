@@ -17,11 +17,20 @@ const eslintConfig = defineConfig([
       ],
       '@typescript-eslint/no-explicit-any': 'warn',
       '@next/next/no-html-link-for-pages': 'off',
+      'react/no-unescaped-entities': 'off',
       'no-console': ['warn', { allow: ['warn', 'error'] }],
     },
   },
   prettier,
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts', 'node_modules/**', '*.config.js', 'public/**']),
+  globalIgnores([
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+    'node_modules/**',
+    '*.config.js',
+    'public/**',
+  ]),
 ]);
 
 export default eslintConfig;
