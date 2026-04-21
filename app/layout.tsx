@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Outfit } from "next/font/google";
+import { Inter, Cairo } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { NextIntlClientProvider } from "next-intl";
@@ -7,16 +7,11 @@ import { getMessages } from "next-intl/server";
 import { getUserLocale } from "@/i18n/locale";
 import { LanguageSwitcher } from "@/components/language-switcher";
 
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const cairo = Cairo({
+  subsets: ["arabic"],
+  variable: "--font-ar",
 });
 
 export const metadata: Metadata = {
@@ -43,10 +38,8 @@ export default async function RootLayout({
       className={cn(
         "h-full",
         "antialiased",
-        geistSans.variable,
-        geistMono.variable,
         "font-sans",
-        outfit.variable,
+        locale === "ar" ? cairo.variable : inter.variable,
       )}
     >
       <body className="min-h-full flex flex-col relative">

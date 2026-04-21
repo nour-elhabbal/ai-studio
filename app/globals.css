@@ -2,12 +2,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* =========================
+   THEME TOKENS (TAILWIND v4 style)
+========================= */
 @theme {
-  /* Typography */
-  --font-sans:
-    "Inter", "Cairo", "Tajawal", ui-sans-serif, system-ui, sans-serif;
+  /* Fonts */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-ar: "Cairo", ui-sans-serif, system-ui, sans-serif;
 
-  /* Shadcn CSS variables mapping */
+  /* Semantic Colors */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
@@ -36,7 +39,7 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  /* Shadcn Chart & Sidebar color mappings */
+  /* Sidebar */
   --color-sidebar: hsl(var(--sidebar-background));
   --color-sidebar-foreground: hsl(var(--sidebar-foreground));
   --color-sidebar-primary: hsl(var(--sidebar-primary));
@@ -46,12 +49,15 @@
   --color-sidebar-border: hsl(var(--sidebar-border));
   --color-sidebar-ring: hsl(var(--sidebar-ring));
 
-  /* Generous Radii mapping for a modern, soft feel */
+  /* Radius system */
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 }
 
+/* =========================
+   BASE STYLES
+========================= */
 @layer base {
   *,
   ::after,
@@ -64,110 +70,113 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    /* Improve font rendering for a premium feel */
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 }
 
+/* =========================
+   LIGHT MODE
+========================= */
 @layer base {
   :root {
-    /* Background & Foreground (Clean white & near black) */
+    /* Background */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
 
-    /* Cards & Popovers */
+    /* Cards */
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
+
+    /* Popover */
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    /* Primary: Emerald-500 (#10b981) */
+    /* PRIMARY (Brand - Emerald) */
     --primary: 160 84% 39%;
     --primary-foreground: 0 0% 98%;
 
-    /* Secondary: Violet-600 (#7c3aed) - Solid violet for major AI actions */
+    /* SECONDARY (AI identity - Violet ONLY here) */
     --secondary: 262 83% 58%;
     --secondary-foreground: 0 0% 98%;
 
-    /* Muted (Light grays) */
+    /* MUTED */
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
-    /* Accent: Soft Violet - For hover states & subtle AI UI magic */
-    --accent: 262 83% 96%;
-    --accent-foreground: 262 83% 58%;
+    /* ACCENT (FIXED → neutral, NOT violet) */
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 10% 3.9%;
 
-    /* Destructive */
+    /* DESTRUCTIVE */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    /* Borders & Inputs */
+    /* BORDER / INPUT */
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
 
-    /* Focus Rings (Emerald) */
+    /* RING */
     --ring: 160 84% 39%;
 
-    /* Base Border Radius: 1rem (Translates to Tailwind xl/2xl visual feel) */
+    /* Radius */
     --radius: 1rem;
 
-    /* Standard Sidebar Overrides */
+    /* SIDEBAR (clean, neutral, no violet dominance) */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary: 160 84% 39%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 262 83% 96%;
-    --sidebar-accent-foreground: 262 83% 58%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 10% 3.9%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 160 84% 39%;
   }
+}
 
+/* =========================
+   DARK MODE
+========================= */
+@layer base {
   .dark {
-    /* Background & Foreground (Deep slate/black) */
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
 
-    /* Cards & Popovers (Slightly lighter than background for depth) */
     --card: 240 10% 6%;
     --card-foreground: 0 0% 98%;
+
     --popover: 240 10% 6%;
     --popover-foreground: 0 0% 98%;
 
-    /* Primary: Emerald-500 (#10b981) */
     --primary: 160 84% 39%;
     --primary-foreground: 0 0% 98%;
 
-    /* Secondary: Violet-600 (#7c3aed) */
     --secondary: 262 83% 58%;
     --secondary-foreground: 0 0% 98%;
 
-    /* Muted */
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
 
-    /* Accent: Deep Violet - For hover states & subtle AI UI magic in dark mode */
-    --accent: 262 83% 15%;
-    --accent-foreground: 262 83% 85%;
+    /* ACCENT (neutral dark, not violet) */
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
 
-    /* Destructive */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    /* Borders & Inputs */
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
 
-    /* Focus Rings (Emerald) */
     --ring: 160 84% 39%;
 
-    /* Standard Sidebar Overrides */
+    /* Sidebar */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary: 160 84% 39%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 262 83% 15%;
-    --sidebar-accent-foreground: 262 83% 85%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 160 84% 39%;
   }
