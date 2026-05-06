@@ -11,13 +11,14 @@ import {
   PricingSection,
   FooterSection,
 } from './sections';
+import { AppLocales } from '@/globals';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
 type Props = {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: AppLocales }>;
 };
 
 export default async function LandingPage({ params }: Props) {

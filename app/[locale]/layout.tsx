@@ -1,12 +1,14 @@
-import type { Metadata } from 'next';
-import { Inter, Cairo } from 'next/font/google';
-import '../globals.css';
-import { cn } from '@/lib/utils';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
-import { LanguageSwitcher } from '@/components/language-switcher';
-import { routing } from '@/i18n/routing';
+import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
+
+import { Inter, Cairo } from 'next/font/google';
+import { AppLocales } from '@/globals';
+import '../globals.css';
+
+import { LanguageSwitcher } from '@/components/language-switcher';
+import { cn } from '@/lib/utils';
+import { routing } from '@/i18n/routing';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -15,13 +17,18 @@ const cairo = Cairo({
   variable: '--font-ar',
 });
 
-export const metadata: Metadata = {
-  title: 'AI Studio',
-  description: 'Unleash your productivity with AI Studio',
-  icons: {
-    icon: '/favicon.ico',
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: AppLocales }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    icons: {
+      icon: '/favicon.ico',
+    },
+  };
+}
 
 type Props = {
   children: React.ReactNode;
@@ -33,7 +40,6 @@ export default async function LocaleLayout({ children, params }: Props) {
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-  setRequestLocale(locale);
 
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
 
