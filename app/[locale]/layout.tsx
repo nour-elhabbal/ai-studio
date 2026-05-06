@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import { Inter, Cairo } from 'next/font/google';
-import './globals.css';
+import '../globals.css';
 import { cn } from '@/lib/utils';
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { getUserLocale } from '@/i18n/locale';
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { LanguageSwitcher } from '@/components/language-switcher';
+import { routing } from '@/i18n/routing';
+import { notFound } from 'next/navigation';
+import { setRequestLocale } from 'next-intl/server';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -22,13 +23,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
+type Props = {
   children: React.ReactNode;
-}>) {
-  const locale = await getUserLocale();
-  const messages = await getMessages();
+  params: Promise<{ locale: string }>;
+};
+
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+  setRequestLocale(locale);
+
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
 
   return (
@@ -44,7 +50,7 @@ export default async function RootLayout({
       )}
     >
       <body className="relative flex min-h-full flex-col">
-        <NextIntlClientProvider messages={messages} locale={locale}>
+        <NextIntlClientProvider>
           <div className="flex items-center justify-between px-8 py-4">
             <h1 className="text-2xl font-bold text-foreground">AI Studio</h1>
             <LanguageSwitcher />
