@@ -19,11 +19,17 @@ export function BeforeAfterSlider({ title, imageBefore, imageAfter }: Props) {
         suppressHydrationWarning
         className="w-full rounded-3xl"
         itemOne={
-          <div className="h-80 w-full bg-purple-500 max-[1200px]:h-64">
+          <div className="relative h-80 w-full bg-purple-500 max-[1200px]:h-64">
             <span className="absolute top-4 left-4 z-10 rounded-4xl bg-purple-500 p-1.5 text-sm">
               {t('before')}
             </span>
-            <Image src={imageBefore} alt="before" fill className="object-cover" />
+            <Image
+              src={imageBefore}
+              alt="before"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 500px"
+            />
           </div>
         }
         itemTwo={
@@ -31,7 +37,13 @@ export function BeforeAfterSlider({ title, imageBefore, imageAfter }: Props) {
             <span className="absolute top-4 right-4 z-10 rounded-4xl bg-emerald-500 p-1.5 text-sm">
               {t('after')}
             </span>
-            <Image src={imageAfter} alt="after" fill className="object-cover" />
+            <Image
+              src={imageAfter}
+              alt="after"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 500px"
+            />
           </div>
         }
       />
