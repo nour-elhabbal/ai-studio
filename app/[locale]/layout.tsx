@@ -6,9 +6,9 @@ import { Inter, Cairo } from 'next/font/google';
 import { AppLocales } from '@/globals';
 import '../globals.css';
 
-import { LanguageSwitcher } from '@/components/language-switcher';
 import { cn } from '@/lib/utils';
 import { routing } from '@/i18n/routing';
+import { Header, ThemeProvider } from '@/components/index';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -24,9 +24,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: A
   return {
     title: t('title'),
     description: t('description'),
-    icons: {
-      icon: '/favicon.ico',
-    },
+
+    favicon: '/favicon.ico',
   };
 }
 
@@ -45,11 +44,11 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html
+      suppressHydrationWarning
       lang={locale}
       dir={dir}
       className={cn(
         'h-full',
-        'dark',
         'antialiased',
         'font-sans',
         locale === 'ar' ? cairo.variable : inter.variable
@@ -57,11 +56,15 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <body className="relative flex min-h-full flex-col">
         <NextIntlClientProvider>
-          <div className="flex items-center justify-between px-8 py-4">
-            <h1 className="text-2xl font-bold text-foreground">AI Studio</h1>
-            <LanguageSwitcher />
-          </div>
-          <div className="h-full">{children}</div>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            <div className="h-full">{children}</div>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>
