@@ -1,4 +1,8 @@
 {
+  "Globals": {
+    "before": "قبل",
+    "after": "بعد"
+  },
   "Metadata": {
     "title": "AI Studio",
     "description": "أطلق العنان لإنتاجيتك مع AI Studio"
@@ -41,9 +45,7 @@
       "wearableAfter": "✨ منسقة بأسلوب المسطح مع إضاءة جذابة",
       "mafraresh": "مفارش (Mafraresh)",
       "mafrareshBefore": "🛏️ قماش مكدس على الأرض",
-      "mafrareshAfter": "✨ سرير مرتب بالكامل في مشهد دافئ",
-      "before": "قبل",
-      "after": "بعد"
+      "mafrareshAfter": "✨ سرير مرتب بالكامل في مشهد دافئ"
     },
     "Features": {
       "title": "صُمم خصيصاً لبائعي التجارة الإلكترونية",

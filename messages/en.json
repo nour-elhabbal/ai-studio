@@ -1,4 +1,8 @@
 {
+  "Globals": {
+    "before": "Before",
+    "after": "After"
+  },
   "Metadata": {
     "title": "AI Studio",
     "description": "Unleash your productivity with AI Studio"
@@ -39,11 +43,9 @@
       "wearable": "Wearables",
       "wearableBefore": "👕 Folded on a chair",
       "wearableAfter": "✨ Styled flat-lay with mood lighting",
-      "mafraresh": "Mafraresh (Home Textiles)",
+      "mafraresh": "Home Textiles",
       "mafrareshBefore": "🛏️ Bundled fabric on the floor",
-      "mafrareshAfter": "✨ Fully made bed in a warm lifestyle scene",
-      "before": "Before",
-      "after": "After"
+      "mafrareshAfter": "✨ Fully made bed in a warm lifestyle scene"
     },
     "Features": {
       "title": "Built for E-commerce Sellers",
