@@ -127,5 +127,52 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Service"
     }
+  },
+  "Auth": {
+    "common": {
+      "or": "Or",
+      "socialGoogle": "Sign in with Google",
+      "socialFacebook": "Sign in with Facebook"
+    },
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to continue where you left off.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Example@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "At least 8 characters",
+      "forgotPassword": "Forgot Password?",
+      "submit": "Sign in",
+      "noAccount": "Don't you have an account?",
+      "signupLink": "Sign up"
+    },
+    "signup": {
+      "title": "Create an Account",
+      "subtitle": "Join 1,000+ sellers using AI Studio",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Example@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "At least 8 characters",
+      "submit": "Sign up",
+      "haveAccount": "Already have an account?",
+      "loginLink": "Log in"
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "subtitle": "Don't worry, we'll help you reset it",
+      "backToLogin": "Back to Log in",
+      "identifierLabel": "Email or Mobile",
+      "identifierPlaceholder": "Enter email or +20...",
+      "submit": "Send Code"
+    },
+    "verifyOtp": {
+      "title": "Verify Code",
+      "subtitle": "We've sent a 6-digit code to your {identifier}",
+      "otpLabel": "Verification Code",
+      "submit": "Verify & Continue",
+      "resend": "Didn't receive code? <resendLink>Resend</resendLink>"
+    }
   }
 }

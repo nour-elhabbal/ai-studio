@@ -127,5 +127,52 @@
       "privacy": "سياسة الخصوصية",
       "terms": "شروط الخدمة"
     }
+  },
+  "Auth": {
+    "common": {
+      "or": "أو",
+      "socialGoogle": "سجل الدخول بواسطة جوجل",
+      "socialFacebook": "سجل الدخول بواسطة فيسبوك"
+    },
+    "login": {
+      "title": "أهلاً بك مجدداً",
+      "subtitle": "سجل الدخول لمتابعة ما بدأت به.",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "Example@email.com",
+      "passwordLabel": "كلمة المرور",
+      "passwordPlaceholder": "على الأقل 8 أحرف",
+      "forgotPassword": "هل نسيت كلمة المرور؟",
+      "submit": "تسجيل الدخول",
+      "noAccount": "ليس لديك حساب؟",
+      "signupLink": "إنشاء حساب"
+    },
+    "signup": {
+      "title": "إنشاء حساب جديد",
+      "subtitle": "انضم إلى أكثر من 1,000 تاجر يستخدمون AI Studio",
+      "nameLabel": "الاسم الكامل",
+      "namePlaceholder": "جون دو",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "Example@email.com",
+      "passwordLabel": "كلمة المرور",
+      "passwordPlaceholder": "على الأقل 8 أحرف",
+      "submit": "إنشاء حساب",
+      "haveAccount": "لديك حساب بالفعل؟",
+      "loginLink": "تسجيل الدخول"
+    },
+    "forgotPassword": {
+      "title": "نسيت كلمة المرور",
+      "subtitle": "لا تقلق، سنساعدك على استعادتها",
+      "backToLogin": "العودة لتسجيل الدخول",
+      "identifierLabel": "البريد أو الجوال",
+      "identifierPlaceholder": "أدخل البريد أو +20...",
+      "submit": "إرسال الرمز"
+    },
+    "verifyOtp": {
+      "title": "تأكيد الرمز",
+      "subtitle": "لقد أرسلنا رمزاً مكوناً من 6 أرقام إلى {identifier}",
+      "otpLabel": "رمز التحقق",
+      "submit": "تأكيد ومتابعة",
+      "resend": "لم تستلم الرمز؟ <resendLink>إعادة إرسال</resendLink>"
+    }
   }
 }
