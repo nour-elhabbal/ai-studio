@@ -1,9 +1,9 @@
 // components/Header.tsx
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { ToggleTheme } from './ui/toggle-theme';
-import { LanguageSwitcher } from './/language-switcher';
+import { LanguageSwitcher } from './language-switcher';
 
 export function Header() {
   return (

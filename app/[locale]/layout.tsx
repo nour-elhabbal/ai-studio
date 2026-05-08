@@ -8,7 +8,7 @@ import '../globals.css';
 
 import { cn } from '@/lib/utils';
 import { routing } from '@/i18n/routing';
-import { Header, ThemeProvider } from '@/components/index';
+import { ThemeProvider } from '@/components/index';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -62,7 +62,6 @@ export default async function LocaleLayout({ children, params }: Props) {
             enableSystem
             disableTransitionOnChange
           >
-            <Header />
             <div className="h-full">{children}</div>
           </ThemeProvider>
         </NextIntlClientProvider>
